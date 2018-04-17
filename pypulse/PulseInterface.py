@@ -1,4 +1,4 @@
-import PulseGeneration as pg
+import pypulse.PulseGeneration as pg
 import numpy as np
 
 
@@ -26,11 +26,13 @@ def make_pulse(sampling_rate, global_onset, global_offset, params_list):
         if len(t) > len(longest_t):
             longest_t = t
 
-    pulse_matrix = np.zeros((len(pulses), len(longest_t) + int((global_onset + global_offset) * sampling_rate)))
+    pulse_matrix = np.zeros((len(pulses), len(
+        longest_t) + int((global_onset + global_offset) * sampling_rate)))
 
     for p, pulse in enumerate(pulses):
-        pulse_matrix[p][int(global_onset * sampling_rate):int(global_onset * sampling_rate)+len(pulse)] = pulse
+        pulse_matrix[p][int(global_onset * sampling_rate):int(global_onset * sampling_rate) + len(pulse)] = pulse
 
-    t = np.linspace(0, pulse_matrix.shape[1] / sampling_rate, pulse_matrix.shape[1])
+    t = np.linspace(
+        0, pulse_matrix.shape[1] / sampling_rate, pulse_matrix.shape[1])
 
     return pulse_matrix, t
