@@ -1,7 +1,7 @@
 import scipy.signal as sps
 import matplotlib.pyplot as plt
 import numpy as np
-import PulseGeneration as pg
+# import PulseGeneration as pg
 import PulseInterface as pi
 
 sampling_rate = 20000
@@ -23,7 +23,8 @@ default_params = {'type': 'ContCorr',
                   'amp_min': 0.0,
                   'amp_max': 1.0,
                   'shatter_frequency': 500.0,
-                  'invert': False}
+                  'invert': False,
+                  'reverse': False}
 
 inverse_params = {'type': 'ContCorr',
                   'frequency': hz,
@@ -35,7 +36,8 @@ inverse_params = {'type': 'ContCorr',
                   'amp_min': 0.0,
                   'amp_max': 1.0,
                   'shatter_frequency': 500.0,
-                  'invert': True}
+                  'invert': True,
+                  'reverse': False}
 
 params = [default_params, inverse_params]
 

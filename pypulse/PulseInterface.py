@@ -1,4 +1,4 @@
-from PyPulse import PulseGeneration
+import PulseGeneration as pg
 import numpy as np
 
 
@@ -8,17 +8,17 @@ def make_pulse(sampling_rate, global_onset, global_offset, params_list):
 
     for params in params_list:
         if params['type'] == 'Simple':
-            this_pulse, t = PulseGeneration.simple_pulse(sampling_rate, params)
+            this_pulse, t = pg.simple_pulse(sampling_rate, params)
         elif params['type'] == 'Noise':
-            this_pulse, t = PulseGeneration.noise_pulse(sampling_rate, params)
+            this_pulse, t = pg.noise_pulse(sampling_rate, params)
         elif params['type'] == 'DummyNoise':
-            this_pulse, t = PulseGeneration.dummy_noise_pulse(sampling_rate, params)
+            this_pulse, t = pg.dummy_noise_pulse(sampling_rate, params)
         elif params['type'] == 'RandomNoise':
-            this_pulse, t = PulseGeneration.random_simple_pulse(sampling_rate, params)
+            this_pulse, t = pg.random_simple_pulse(sampling_rate, params)
         elif params['type'] == 'Plume':
-            this_pulse, t = PulseGeneration.plume_pulse(sampling_rate, params)
+            this_pulse, t = pg.plume_pulse(sampling_rate, params)
         elif params['type'] == 'ContCorr':
-            this_pulse, t = PulseGeneration.spec_time_pulse(sampling_rate, params)
+            this_pulse, t = pg.spec_time_pulse(sampling_rate, params)
         else:
             raise ValueError
 
